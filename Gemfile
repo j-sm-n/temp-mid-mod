@@ -15,6 +15,7 @@ gem 'responders'
 gem 'awesome_print'
 gem 'devise'
 gem 'webmock'
+gem 'faraday'
 # gem 'bcrypt', '~> 3.1.7'
 
 # gem 'unicorn'

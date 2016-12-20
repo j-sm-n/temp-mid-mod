@@ -39,12 +39,14 @@ function linkHTML(link) {
               <p class='link-url' contenteditable=true>${ link.url }</p>
 
               <p class="link_read">
-                ${ link.read }
+                Link read: ${ link.read }
               </p>
               <p class="link_buttons">
                 <button class="upgrade-quality">+</button>
                 <button class="downgrade-quality">-</button>
                 <button class='delete-link'>Delete</button>
+                <a href='/links/${ link.id }/edit' class='button' role='button'>Edit</a>
+                <a href='/links/${ link.id }/mark-as-read' class='button' role='button'>Mark as Read</a>
               </p>
             </div>`
 }
