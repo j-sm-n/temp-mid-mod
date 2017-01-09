@@ -17,14 +17,44 @@ RSpec.describe "Authenticated User can create links", :js => :true do
 
   scenario "Create a new link" do
     visit "/"
-    fill_in "Title:", :with => "Turing"
-    fill_in "URL:", :with => "http://turing.io"
+    fill_in "Title:", with: "Turing"
+    fill_in "URL:", with: "http://turing.io"
     click_on "Add Link"
 
     within('#links-list') do
       expect(page).to have_text("Turing")
       expect(page).to have_text("http://turing.io")
     end
+  end
 
+  scenario "forgets to add a title" do
+    visit "/"
+    fill_in "URL:", with: "http://turing.io"
+    click_on "Add Link"
+
+    expect(page).to have_content("Title cannot be left blank")
+    expect(page).to_not have_content("Turing")
+    expect(page).to_not have_content("http://turing.io")
+  end
+
+  scenario "forgets to add an url" do
+    visit "/"
+    fill_in "Title:", with: "Turing"
+    click_on "Add Link"
+
+    expect(page).to have_content("URL cannot be left blank")
+    expect(page).to_not have_content("Turing")
+    expect(page).to_not have_content("http://turing.io")
+  end
+
+  scenario "url submitted is invalid" do
+    visit "/"
+    fill_in "Title:", with: "Turing"
+    fill_in "URL:", with: "turing.io"
+    click_on "Add Link"
+
+    expect(page).to have_content("URL is invalid")
+    expect(page).to_not have_content("Turing")
+    expect(page).to_not have_content("http://turing.io")
   end
 end
