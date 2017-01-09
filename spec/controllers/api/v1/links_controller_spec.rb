@@ -2,7 +2,7 @@ require 'rails_helper'
 
 RSpec.describe Api::V1::LinksController, type: :controller do
   include LoginHelpers
-  
+
   before(:each) do
     user = create(:user)
 
@@ -13,21 +13,29 @@ RSpec.describe Api::V1::LinksController, type: :controller do
     context "with valid params" do
       it "creates a new link" do
         expect {
-          post :create, {link: attributes_for(:link)}
+          post :create, params: attributes_for(:link)
         }.to change(Link, :count).by(1)
         expect(response.status).to eq(201)
       end
 
       it "assigns a newly created link as @link" do
-        post :create, {link: attributes_for(:link)}
+        post :create, params: attributes_for(:link)
 
         expect(assigns(:link)).to be_a(Link)
         expect(assigns(:link)).to be_persisted
       end
 
-      it "redirects to the created link" do
-        post :create, {link: attributes_for(:link)}
-        expect(response).to redirect_to(Artist.last)
+      it "returns json for created link" do
+        post :create, params: attributes_for(:link)
+        parsed_response = JSON.parse(response.body)
+        expected = {
+          "user_id" => 3,
+          "title" => "Turing",
+          "url" => "http://turing.io",
+          "read" => false
+        }
+
+        expect(parsed_response).to include(expected)
       end
     end
 

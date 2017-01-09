@@ -2,7 +2,9 @@ class Api::V1::LinksController < ApplicationController
   # skip_before_action :require_login
 
   def create
-    @link = Link.new link_params
+    @link = Link.new( title: link_params[:title],
+                      url: link_params[:url],
+                      user_id: current_user.id )
     if @link.save
       render json: @link, status: 201
     else
@@ -25,6 +27,6 @@ class Api::V1::LinksController < ApplicationController
   private
 
   def link_params
-    params.require(:link).permit(:title, :url, :read)
+    params.permit(:title, :url, :read)
   end
 end
