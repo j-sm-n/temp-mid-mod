@@ -3,6 +3,7 @@ ENV['RAILS_ENV'] ||= 'test'
 require 'spec_helper'
 require File.expand_path('../../config/environment', __FILE__)
 require 'rspec/rails'
+require 'factory_girl'
 require 'capybara/rails'
 require 'capybara/rspec'
 require 'capybara/poltergeist'
@@ -34,6 +35,10 @@ Shoulda::Matchers.configure do |config|
 
     with.library :rails
   end
+end
+
+RSpec.configure do |config|
+  config.include FactoryGirl::Syntax::Methods
 end
 
 # Checks for pending migrations before tests are run.
