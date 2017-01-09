@@ -33,15 +33,14 @@ function renderLink (link) {
 
 function linkHTML (link) {
     return `<div class='link' data-id='${link.id}' id="link-${link.id}">
-              <p class='link-title'>${ link.title }</p>
-              <p class='link-url'>${ link.url }</p>
+              <p class='link-title' contenteditable="true">${ link.title }</p>
+              <p class='link-url' contenteditable="true">${ link.url }</p>
 
               <p class="link_read">
                 ${ link.read }
               </p>
               <p class="link_buttons">
                 <button class="mark-read">Mark as Read</button>
-                <button class='edit-link' data-remote='true' data-id=${link.id}>Edit</button>
                 <button class='delete-link'>Delete</button>
               </p>
             </div>`
