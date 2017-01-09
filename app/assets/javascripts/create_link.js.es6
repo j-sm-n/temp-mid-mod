@@ -1,8 +1,9 @@
-var $newLinkTitle, $newLinkUrl
+var $newLinkTitle, $newLinkUrl, $newLinkUser
 
 $(document).ready(function () {
   $newLinkTitle = $("#link-title")
   $newLinkUrl = $("#link-url")
+  $newLinkUser = $("#link-user")
 
   $("#new-link").on('submit', createLink)
 })
@@ -22,7 +23,8 @@ function createLink (event) {
 function getLinkData () {
  return {
    title: $newLinkTitle.val(),
-   url: $newLinkUrl.val()
+   url: $newLinkUrl.val(),
+   user: $newLinkUser.val()
  }
 }
 

@@ -1,5 +1,5 @@
 class Api::V1::LinksController < ApplicationController
-  skip_before_action :require_login
+  # skip_before_action :require_login
 
   def create
     @link = Link.new link_params

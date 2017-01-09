@@ -41,6 +41,8 @@ RSpec.configure do |config|
   config.include FactoryGirl::Syntax::Methods
 end
 
+Dir[Rails.root.join("spec/support/**/*.rb")].each { |f| require f }
+
 # Checks for pending migrations before tests are run.
 # If you are not using ActiveRecord, you can remove this line.
 ActiveRecord::Migration.maintain_test_schema!
@@ -53,6 +55,8 @@ RSpec.configure do |config|
 
   #### Database cleaner strategy
   #### Copied from https://github.com/DatabaseCleaner/database_cleaner#rspec-with-capybara-example
+
+  config.include LoginHelpers
 
   config.use_transactional_fixtures = false
 

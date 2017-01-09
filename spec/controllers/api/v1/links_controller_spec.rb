@@ -1,6 +1,14 @@
 require 'rails_helper'
 
 RSpec.describe Api::V1::LinksController, type: :controller do
+  include LoginHelpers
+  
+  before(:each) do
+    user = create(:user)
+
+    login_user(user)
+  end
+
   describe "POST #create" do
     context "with valid params" do
       it "creates a new link" do
@@ -10,14 +18,15 @@ RSpec.describe Api::V1::LinksController, type: :controller do
         expect(response.status).to eq(201)
       end
 
-      xit "assigns a newly created link as @link" do
-        post :create, {:link => attributes_for(:link)}
-        expect(assigns(:link)).to be_a(Artist)
+      it "assigns a newly created link as @link" do
+        post :create, {link: attributes_for(:link)}
+
+        expect(assigns(:link)).to be_a(Link)
         expect(assigns(:link)).to be_persisted
       end
 
-      xit "redirects to the created link" do
-        post :create, {:link => attributes_for(:link)}
+      it "redirects to the created link" do
+        post :create, {link: attributes_for(:link)}
         expect(response).to redirect_to(Artist.last)
       end
     end
