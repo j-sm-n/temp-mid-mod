@@ -33,7 +33,7 @@ RSpec.describe "Unathenticated User" do
     click_on "Submit"
 
     expect(current_path).to eq(signup_path)
-    expect(page).to have_content("Email is already taken.")
+    expect(page).to have_content("Email has already been taken")
   end
 
   scenario "can't sign up with mismatched passwords" do
@@ -45,6 +45,6 @@ RSpec.describe "Unathenticated User" do
     click_on "Submit"
 
     expect(current_path).to eq(signup_path)
-    expect(page).to have_content("Passwords must match.")
+    expect(page).to have_content("Password confirmation doesn't match")
   end
 end

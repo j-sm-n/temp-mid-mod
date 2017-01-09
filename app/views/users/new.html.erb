@@ -1,5 +1,9 @@
 <h1>Signup!</h1>
 
+<% if flash[:danger] %>
+  <div class="danger"><%= flash[:danger] %></div>
+<% end %>
+
 <%= form_for @user do |f| %>
 
   Email: <%= f.text_field :email %>
