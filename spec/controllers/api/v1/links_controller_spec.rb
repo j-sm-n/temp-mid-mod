@@ -39,15 +39,39 @@ RSpec.describe Api::V1::LinksController, type: :controller do
       end
     end
 
-    context "with invalid params" do
-      xit "assigns a newly created but unsaved link as @link" do
-        post :create, {:link => attributes_for(:link, name: nil)}
-        expect(assigns(:link)).to be_a_new(Artist)
+    context "with missing params" do
+      it "assigns a newly created but unsaved link as @link" do
+        post :create, params: attributes_for(:link, title: nil)
+
+        expect(assigns(:link)).to be_a_new(Link)
+        expect(response.status).to eq(500)
       end
 
-      xit "re-renders the 'new' template" do
-        post :create, {:link => attributes_for(:link, name: nil)}
-        expect(response).to render_template("new")
+      it "returns missing title message" do
+        post :create, params: attributes_for(:link, title: nil)
+
+        expected_error = ["Title can't be blank"]
+        actual_error = JSON.parse(response.body)
+
+        expect(actual_error).to eq(expected_error)
+      end
+
+      it "returns missing url message" do
+        post :create, params: attributes_for(:link, url: nil)
+
+        expected_error = ["Url can't be blank", "Url is invalid"]
+        actual_error = JSON.parse(response.body)
+
+        expect(actual_error).to eq(expected_error)
+      end
+
+      it "returns invalid url message" do
+        post :create, params: attributes_for(:link, url: "nil")
+
+        expected_error = ["Url is invalid"]
+        actual_error = JSON.parse(response.body)
+
+        expect(actual_error).to eq(expected_error)
       end
     end
   end
