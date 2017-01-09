@@ -22,7 +22,7 @@ RSpec.describe "Registered User links", js: true do
 
     within("#links-list") do
       expect(page).to have_content("Turing")
-      expect(page).to have_content("https://turing.io")
+      expect(page).to have_content("http://turing.io")
       expect(page).to have_content("Facebook")
       expect(page).to have_content("https://facebook.com")
       expect(page).to have_content("Twitter")
