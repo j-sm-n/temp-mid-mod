@@ -21,11 +21,12 @@ RSpec.describe "Unathenticated User" do
     click_on "Create account"
 
     expect(current_path).to eq(links_path)
-    expect(current_user.email_address).to eq("jasmin@turing.io")
+    expect(current_user.email).to eq("jasmin@turing.io")
   end
 
   scenario "can't sign up with an email that has already been taken" do
-    create :user
+    User.create( email: "jasmin@turing.io",
+                 password: "password", password_confirmation: "password" )
     visit "/"
     click_on "Sign Up"
     fill_in "Email address", with: "jasmin@turing.io"
