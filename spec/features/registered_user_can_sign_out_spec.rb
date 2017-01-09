@@ -1,14 +1,18 @@
 require "rails_helper"
 
 RSpec.describe "Registered User" do
+  def authenticate_user
+    visit "/"
+    fill_in "email", with: "jasmin@turing.io"
+    fill_in "password", with: "password"
+    click_on "Submit"
+  end
+
   before(:each) do
     User.create( email: "jasmin@turing.io",
                  password: "password", password_confirmation: "password" )
 
-   visit "/"
-   fill_in "email", with: "jasmin@turing.io"
-   fill_in "password", with: "password"
-   click_on "Submit"
+   authenticate_user
   end
 
   scenario "can sign out" do
