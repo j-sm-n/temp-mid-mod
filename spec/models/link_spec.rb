@@ -20,4 +20,8 @@ RSpec.describe Link, type: :model do
     expect(link.user_id).to eq(user.id)
     expect(link.read).to eq(false)
   end
+
+  it "knows if it is read or not" do
+    
+  end
 end
