@@ -1,38 +1,38 @@
-var $newLinkTitle, $newLinkUrl;
+var $newLinkTitle, $newLinkUrl
 
-$(document).ready(function(){
-  $newLinkTitle = $("#link-title");
-  $newLinkUrl  = $("#link-url");
+$(document).ready(function () {
+  $newLinkTitle = $("#link-title")
+  $newLinkUrl = $("#link-url")
 
-  $("#new-link").on('submit', createLink);
+  $("#new-link").on('submit', createLink)
 })
 
-function createLink (event){
-  event.preventDefault();
+function createLink (event) {
+  event.preventDefault()
 
   console.log("win")
 
-  var link = getLinkData();
+  var link = getLinkData()
 
   $.post("/api/v1/links", link)
-   .then( renderLink )
-   .fail( displayFailure )
+   .then(renderLink)
+   .then(clearLink)
+   .fail(displayFailure)
  }
 
-function getLinkData() {
+function getLinkData () {
  return {
    title: $newLinkTitle.val(),
    url: $newLinkUrl.val()
  }
 }
 
-function renderLink(link){
-  $("#links-list").append( linkHTML(link) )
-  // clearLink();
+function renderLink (link) {
+  $("#links-list").append(linkHTML(link))
+  // clearLink()
 }
 
-function linkHTML(link) {
-
+function linkHTML (link) {
     return `<div class='link' data-id='${link.id}' id="link-${link.id}">
               <p class='link-title'>${ link.title }</p>
               <p class='link-url'>${ link.url }</p>
@@ -48,11 +48,11 @@ function linkHTML(link) {
             </div>`
 }
 
-function clearLink() {
-  $newLinkTitle.val("");
-  $newLinkUrl.val("");
+function clearLink () {
+  $newLinkTitle.val('')
+  $newLinkUrl.val('')
 }
 
-function displayFailure(failureData){
-  console.log("FAILED attempt to create new Link: " + failureData.responseText);
+function displayFailure (failureData) {
+  console.log("FAILED attempt to create new Link: " + failureData.responseText)
 }
