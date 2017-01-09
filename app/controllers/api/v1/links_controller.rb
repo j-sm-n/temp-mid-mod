@@ -1,5 +1,5 @@
 class Api::V1::LinksController < ApplicationController
-  
+
   def create
     @link = Link.new( title: link_params[:title],
                       url: link_params[:url],
@@ -20,6 +20,15 @@ class Api::V1::LinksController < ApplicationController
       head :no_content
     else
       render json: @link.errors.full_messages, status: 500
+    end
+  end
+
+  def index
+    @links = Link.where(user_id: current_user.id)
+    if @links
+      render json: @links, status: 200
+    else
+      render json: { "error": "No links for you"}, status: 500
     end
   end
 

@@ -4,9 +4,25 @@ RSpec.describe Api::V1::LinksController, type: :controller do
   include LoginHelpers
 
   before(:each) do
-    user = create(:user)
+    @user = create(:user)
 
-    login_user(user)
+    login_user(@user)
+  end
+
+  describe "GET #index" do
+    context "with user signed in" do
+      it "returns all link data belonging to that user" do
+        link_1 = create(:link, user_id: @user.id)
+        link_2 = create(:link, title: "Facebook", url: "https://facebook.com", user_id: @user.id)
+        link_3 = create(:link, title: "Twitter", url: "https://twitter.com", user_id: @user.id)
+
+        get :index
+        parsed_response = JSON.parse(response.body)
+
+        expect(response.status).to eq(200)
+        expect(parsed_response).to be_a(Array)
+      end
+    end
   end
 
   describe "POST #create" do
@@ -29,7 +45,7 @@ RSpec.describe Api::V1::LinksController, type: :controller do
         post :create, params: attributes_for(:link)
         parsed_response = JSON.parse(response.body)
         expected = {
-          "user_id" => 3,
+          "user_id" => @user.id,
           "title" => "Turing",
           "url" => "http://turing.io",
           "read" => false

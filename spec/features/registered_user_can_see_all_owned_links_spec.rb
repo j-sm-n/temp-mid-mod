@@ -2,7 +2,7 @@ require "rails_helper"
 
 RSpec.describe "Registered User links", js: true do
   def authenticate_user
-    visit "/"
+    visit login_path
     fill_in "email", with: "jasmin@turing.io"
     fill_in "password", with: "password"
     click_on "Submit"
