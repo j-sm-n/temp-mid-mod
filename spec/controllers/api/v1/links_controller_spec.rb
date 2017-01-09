@@ -95,8 +95,8 @@ RSpec.describe Api::V1::LinksController, type: :controller do
   describe "PUT #update" do
     context "with valid params" do
       xit "updates the requested link" do
-        link = create(:link)
-        put :update, {:id => link.to_param, :link => attributes_for(:link, name: "New name")}
+        link = create(:link, user_id: @user.id)
+        put :update, params: attributes_for(:link, title: "New name"), id: link.to_param
         link.reload
         expect(link.name).to eq("New name")
       end
