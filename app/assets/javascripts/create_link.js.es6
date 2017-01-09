@@ -10,7 +10,7 @@ $(document).ready(function () {
 function createLink (event) {
   event.preventDefault()
 
-  console.log("win")
+  // console.log("win")
 
   var link = getLinkData()
 
@@ -53,5 +53,5 @@ function clearLink () {
 }
 
 function displayFailure (failureData) {
-  console.log("FAILED attempt to create new Link: " + failureData.responseText)
+  $("#failure-data").append('<p>' + JSON.parse(failureData.responseText) + '</p>')
 }
