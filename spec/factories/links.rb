@@ -1,6 +1,6 @@
 FactoryGirl.define do
   factory :link do
-    title "THIS IS NEAT"
-    url "http//thisisneat.com"
+    title "Turing"
+    url "http://turing.io"
   end
 end

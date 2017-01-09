@@ -22,6 +22,8 @@ RSpec.describe Link, type: :model do
   end
 
   it "knows if it is read or not" do
-    
+    link = create(:link)
+
+    expect(link.is_read?).to eq(false)
   end
 end

@@ -12,4 +12,8 @@ class Link < ApplicationRecord
       .group("links.url")
       .order('count("reads".id) DESC').limit(10)
   }
+
+  def is_read?
+    read
+  end
 end
