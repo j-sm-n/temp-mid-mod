@@ -8,7 +8,7 @@ function addLinks () {
     allLinks.forEach(renderLink)
   })
   // .then(attachDeleteEvent)
-  // .then(attachEditEvent)
+  .then(attachEditEvent)
   .fail(displayFailureAllLinks)
 }
 

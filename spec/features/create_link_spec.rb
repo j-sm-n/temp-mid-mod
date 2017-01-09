@@ -1,6 +1,6 @@
 require "rails_helper"
 
-RSpec.describe "Authenticated User can create links", :js => :true do
+RSpec.describe "Authenticated User can create links", js: :true do
   def authenticate_user
     visit "/"
     fill_in "email", with: "jasmin@turing.io"
@@ -12,7 +12,7 @@ RSpec.describe "Authenticated User can create links", :js => :true do
     User.create( email: "jasmin@turing.io",
                  password: "password", password_confirmation: "password" )
 
-   authenticate_user
+    authenticate_user
   end
 
   scenario "Create a new link" do
