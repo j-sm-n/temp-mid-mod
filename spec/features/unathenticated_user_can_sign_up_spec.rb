@@ -18,8 +18,8 @@ RSpec.describe "Unathenticated User" do
     fill_in "user[password_confirmation]", with: "password"
     click_on "Submit"
 
-    expect(current_path).to eq(links_path)
-    expect(current_user.email).to eq("jasmin@turing.io")
+    expect(current_path).to eq(root_path)
+    expect(User.last.email).to eq("jasmin@turing.io")
   end
 
   scenario "can't sign up with an email that has already been taken" do
@@ -32,7 +32,7 @@ RSpec.describe "Unathenticated User" do
     fill_in "user[password_confirmation]", with: "password"
     click_on "Submit"
 
-    expect(current_path).to eq(root_path)
+    expect(current_path).to eq(signup_path)
     expect(page).to have_content("Email is already taken.")
   end
 
@@ -44,7 +44,7 @@ RSpec.describe "Unathenticated User" do
     fill_in "user[password_confirmation]", with: "pass"
     click_on "Submit"
 
-    expect(current_path).to eq(root_path)
+    expect(current_path).to eq(signup_path)
     expect(page).to have_content("Passwords must match.")
   end
 end

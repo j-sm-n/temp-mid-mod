@@ -1,6 +1,10 @@
 <h1>Welcome to URL Lockbox!</h1>
 <h2>Log In or Sign Up</h2>
 
+<% if flash[:alert] %>
+    <div class="alert"><%= flash[:alert] %></div>
+<% end %>
+
 <%= form_tag '/login' do %>
 
   Email: <%= text_field_tag :email %>
