@@ -16,7 +16,6 @@ function createLink (event) {
 
   $.post("/api/v1/links", link)
    .then(renderLink)
-   .then(clearLink)
    .fail(displayFailure)
  }
 
@@ -29,7 +28,7 @@ function getLinkData () {
 
 function renderLink (link) {
   $("#links-list").append(linkHTML(link))
-  // clearLink()
+  clearLink()
 }
 
 function linkHTML (link) {

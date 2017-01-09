@@ -1,4 +1,5 @@
 class Api::V1::LinksController < ApplicationController
+  skip_before_action :require_login
 
   def create
     @link = Link.new link_params
@@ -24,6 +25,6 @@ class Api::V1::LinksController < ApplicationController
   private
 
   def link_params
-    params.permit(:title, :url, :read)
+    params.require(:link).permit(:title, :url, :read)
   end
 end
