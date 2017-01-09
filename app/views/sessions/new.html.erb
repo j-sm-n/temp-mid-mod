@@ -5,6 +5,10 @@
     <div class="alert"><%= flash[:alert] %></div>
 <% end %>
 
+<% if flash[:danger] %>
+  <div class="danger"><%= flash[:danger] %></div>
+<% end %>
+
 <%= form_tag '/login' do %>
 
   Email: <%= text_field_tag :email %>

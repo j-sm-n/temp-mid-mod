@@ -16,7 +16,7 @@ RSpec.describe "Registered User" do
     click_on "Submit"
 
     expect(current_path).to eq(root_path)
-    expect(page).to have_content("Welcome back, jasmin@hudacsek.com!")
+    expect(page).to have_content("Welcome back, jasmin@turing.io!")
   end
 
   scenario "can't leave email blank" do
