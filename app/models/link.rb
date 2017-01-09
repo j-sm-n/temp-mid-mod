@@ -1,5 +1,8 @@
 class Link < ApplicationRecord
   validates :title, presence: true
+  validates :url, presence: true
+
+  belongs_to :user
 
   scope :hot, -> {
     select('links.url as url')
