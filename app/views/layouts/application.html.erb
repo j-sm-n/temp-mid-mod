@@ -9,8 +9,10 @@
 <body>
 <div class="container">
   <% if current_user %>
-    <%= link_to "Sign Out", logout_path %>
+  <ul>
+    <li><%= link_to "Sign Out", logout_path %></li>
   <% end %>
+  </ul>
   <%= yield %>
 </div>
 

@@ -7,7 +7,7 @@ function addLinks () {
   .then(function (allLinks) {
     allLinks.forEach(renderLink)
   })
-  // .then(attachDeleteEvent)
+  .then(attachDeleteEvent)
   .then(attachMarkAsReadEvent)
   .then(attachEditEvents)
   .fail(displayFailureAllLinks)
