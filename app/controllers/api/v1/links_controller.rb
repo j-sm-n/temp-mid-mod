@@ -25,7 +25,7 @@ class Api::V1::LinksController < ApplicationController
   end
 
   def index
-    @links = Link.where(user_id: current_user.id)
+    @links = current_user.links
     if @links
       render json: @links, status: 200
     else
