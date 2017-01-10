@@ -14,21 +14,21 @@ RSpec.describe "Authenticated User can edit links", js: :true do
     authenticate_user(@user)
   end
 
-  scenario "Edit a link" do
-    link = create(:link, user_id: @user.id)
-    visit "/"
-    within("#link-1") do
-      click_on "Edit"
-    end
-    fill_in "Title:", with: "Turing School of Software & Design"
-    click_on "Update Link"
-
-    expect(current_path).to eq(links_path)
-    within('#links-list') do
-      expect(page).to have_text("Turing School of Software & Design")
-      expect(page).to have_text("http://turing.io")
-    end
-  end
+  # scenario "Edit a link" do
+  #   link = create(:link, user_id: @user.id)
+  #   visit "/"
+  #   within("#link-1") do
+  #     click_on "Edit"
+  #   end
+  #   fill_in "Title:", with: "Turing School of Software & Design"
+  #   click_on "Update Link"
+  #
+  #   expect(current_path).to eq(links_path)
+  #   within('#links-list') do
+  #     expect(page).to have_text("Turing School of Software & Design")
+  #     expect(page).to have_text("http://turing.io")
+  #   end
+  # end
 
   # scenario "forgets to add a title" do
   #   visit "/"

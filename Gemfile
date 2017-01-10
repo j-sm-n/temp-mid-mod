@@ -16,6 +16,8 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'react-rails'
 gem 'sprockets-es6'
 
+gem 'rack-cors', :require => 'rack/cors'
+
 # gem 'unicorn'
 
 # gem 'capistrano-rails', group: :development
