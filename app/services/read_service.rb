@@ -1,0 +1,3 @@
+class ReadService
+
+end
