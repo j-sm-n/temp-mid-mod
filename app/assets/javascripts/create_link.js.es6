@@ -39,6 +39,7 @@ function linkHTML (link) {
     mark_as = "Unread"
   }
     return `<div class='link' data-read=${link.read} data-id='${link.id}' id="link-${link.id}">
+              <div class='status'></div>
               <p class='link-title' contenteditable="true">${ link.title }</p>
               <p class='link-url' contenteditable="true">${ link.url }</p>
 
