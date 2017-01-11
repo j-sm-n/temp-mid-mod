@@ -35,16 +35,19 @@ function renderLink (link) {
 }
 
 function linkHTML (link) {
+  var mark_as = "Read"
+  if (link.read) {
+    mark_as = "Unread"
+  }
     return `<div class='link' data-id='${link.id}' id="link-${link.id}">
               <p class='link-title' contenteditable="true">${ link.title }</p>
               <p class='link-url' contenteditable="true">${ link.url }</p>
 
               <p class="link_read">
-                ${ link.read }
+                Read: ${ link.read }
               </p>
               <p class="link_buttons">
-                <button class="mark-read">Mark as Read</button><br>
-                Read status: <div class='status'>${link.read}</div>
+                <button class="mark-${mark_as}">Mark as ${mark_as}</button><br>
               </p>
             </div>`
 }
