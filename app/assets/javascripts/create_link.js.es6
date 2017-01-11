@@ -72,11 +72,11 @@ function setStatus (link) {
 }
 
 function isTopResult (link) {
-  return (hotReads[0].url == link.url)
+  return (hotReads[0].url === link.url)
 }
 
 function isHotResult (link) {
   return hotReads.some(function (read) {
-    return read.url == link.url
+    return read.url === link.url
   })
 }

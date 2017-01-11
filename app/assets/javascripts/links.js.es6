@@ -1,13 +1,13 @@
 var hotReads;
-$(document).ready(function(){
+$(document).ready(function () {
   $.get('https://hot-reads-jh.herokuapp.com/reads', function(reads) {
-    hotReads = reads;
-  }).then(function() {
+    hotReads = reads
+  }).then(function () {
     $.get('/api/v1/links')
      .then(placeLinks)
   })
 })
 
-function placeLinks (links){
-  links.forEach(renderLink);
+function placeLinks (links) {
+  links.forEach(renderLink)
 }
