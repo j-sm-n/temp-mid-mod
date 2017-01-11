@@ -32,7 +32,7 @@ RSpec.describe "Authenticated User can create links", js: :true do
     fill_in "URL:", with: "http://turing.io"
     click_on "Add Link"
 
-    expect(page).to have_content("Title can't be blank URL")
+    expect(page).to have_content("Title can't be blank")
     expect(page).to_not have_content("Turing")
     expect(page).to_not have_content("http://turing.io")
   end
