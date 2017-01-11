@@ -14,7 +14,7 @@
       <img src="./assets/0.10.0/loading.gif" alt="loading"/>
     </div>
     <div id="wrapper" style="display:none;">
-      <div class="timestamp">Generated <abbr class="timeago" title="2017-01-10T23:07:43-07:00">2017-01-10T23:07:43-07:00</abbr></div>
+      <div class="timestamp">Generated <abbr class="timeago" title="2017-01-10T23:12:21-07:00">2017-01-10T23:12:21-07:00</abbr></div>
       <ul class="group_tabs"></ul>
 
       <div id="content">
@@ -53,7 +53,7 @@
       <tr>
         <td class="strong"><a href="#249cf5c1bed615730157d887cca1a6ec5e96d914" class="src_link" title="app/controllers/api/v1/links_controller.rb">app/controllers/api/v1/links_controller.rb</a></td>
         <td class="red strong">63.64 %</td>
-        <td>40</td>
+        <td>41</td>
         <td>22</td>
         <td>14</td>
         <td>8</td>
@@ -191,7 +191,7 @@
       <tr>
         <td class="strong"><a href="#249cf5c1bed615730157d887cca1a6ec5e96d914" class="src_link" title="app/controllers/api/v1/links_controller.rb">app/controllers/api/v1/links_controller.rb</a></td>
         <td class="red strong">63.64 %</td>
-        <td>40</td>
+        <td>41</td>
         <td>22</td>
         <td>14</td>
         <td>8</td>
@@ -511,232 +511,238 @@
         <li class="never" data-hits="" data-linenumber="2">
           
           
+          <code class="ruby">  # Note</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="3">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="3">
+        <li class="covered" data-hits="1" data-linenumber="4">
           <span class="hits">1</span>
           
           <code class="ruby">  def create</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="4">
+        <li class="covered" data-hits="11" data-linenumber="5">
           <span class="hits">11</span>
           
           <code class="ruby">    @link = Link.new( title: link_params[:title],</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="5">
+        <li class="never" data-hits="" data-linenumber="6">
           
           
           <code class="ruby">                      url: link_params[:url],</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="6">
+        <li class="never" data-hits="" data-linenumber="7">
           
           
           <code class="ruby">                      user_id: current_user.id )</code>
         </li>
       
-        <li class="covered" data-hits="11" data-linenumber="7">
+        <li class="covered" data-hits="11" data-linenumber="8">
           <span class="hits">11</span>
           
           <code class="ruby">    if @link.save</code>
         </li>
       
-        <li class="covered" data-hits="4" data-linenumber="8">
+        <li class="covered" data-hits="4" data-linenumber="9">
           <span class="hits">4</span>
           
           <code class="ruby">      render json: @link, status: 201</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="9">
+        <li class="never" data-hits="" data-linenumber="10">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="covered" data-hits="7" data-linenumber="10">
+        <li class="covered" data-hits="7" data-linenumber="11">
           <span class="hits">7</span>
           
           <code class="ruby">      render json: @link.errors.full_messages, status: 500</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="11">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
         <li class="never" data-hits="" data-linenumber="12">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="13">
           
           
+          <code class="ruby">  end</code>
+        </li>
+      
+        <li class="never" data-hits="" data-linenumber="14">
+          
+          
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="14">
+        <li class="covered" data-hits="1" data-linenumber="15">
           <span class="hits">1</span>
           
           <code class="ruby">  def update</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="15">
+        <li class="missed" data-hits="0" data-linenumber="16">
           
           
           <code class="ruby">    @link = Link.find params[:id]</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="16">
+        <li class="missed" data-hits="0" data-linenumber="17">
           
           
           <code class="ruby">    @link.assign_attributes link_params</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="17">
+        <li class="missed" data-hits="0" data-linenumber="18">
           
           
           <code class="ruby">    just_read = @link.read_changed? &amp;&amp; @link.read</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="18">
+        <li class="missed" data-hits="0" data-linenumber="19">
           
           
           <code class="ruby">    if @link.save</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="19">
+        <li class="missed" data-hits="0" data-linenumber="20">
           
           
           <code class="ruby">      read = Read.create(link: @link) if just_read</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="20">
+        <li class="missed" data-hits="0" data-linenumber="21">
           
           
           <code class="ruby">      head :no_content</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="21">
+        <li class="never" data-hits="" data-linenumber="22">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="22">
+        <li class="missed" data-hits="0" data-linenumber="23">
           
           
           <code class="ruby">      render json: @link.errors.full_messages, status: 500</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="23">
-          
-          
-          <code class="ruby">    end</code>
-        </li>
-      
         <li class="never" data-hits="" data-linenumber="24">
           
           
-          <code class="ruby">  end</code>
+          <code class="ruby">    end</code>
         </li>
       
         <li class="never" data-hits="" data-linenumber="25">
           
           
-          <code class="ruby"></code>
+          <code class="ruby">  end</code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="26">
-          <span class="hits">1</span>
+        <li class="never" data-hits="" data-linenumber="26">
           
-          <code class="ruby">  def index</code>
+          
+          <code class="ruby"></code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="27">
           <span class="hits">1</span>
           
-          <code class="ruby">    @links = current_user.links</code>
+          <code class="ruby">  def index</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="28">
           <span class="hits">1</span>
           
-          <code class="ruby">    if @links</code>
+          <code class="ruby">    @links = current_user.links</code>
         </li>
       
         <li class="covered" data-hits="1" data-linenumber="29">
           <span class="hits">1</span>
           
+          <code class="ruby">    if @links</code>
+        </li>
+      
+        <li class="covered" data-hits="1" data-linenumber="30">
+          <span class="hits">1</span>
+          
           <code class="ruby">      render json: @links, status: 200</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="30">
+        <li class="never" data-hits="" data-linenumber="31">
           
           
           <code class="ruby">    else</code>
         </li>
       
-        <li class="missed" data-hits="0" data-linenumber="31">
+        <li class="missed" data-hits="0" data-linenumber="32">
           
           
           <code class="ruby">      render json: { &quot;error&quot;: &quot;No links for you&quot;}, status: 500</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="32">
+        <li class="never" data-hits="" data-linenumber="33">
           
           
           <code class="ruby">    end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="33">
+        <li class="never" data-hits="" data-linenumber="34">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="34">
+        <li class="never" data-hits="" data-linenumber="35">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="35">
+        <li class="covered" data-hits="1" data-linenumber="36">
           <span class="hits">1</span>
           
           <code class="ruby">  private</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="36">
+        <li class="never" data-hits="" data-linenumber="37">
           
           
           <code class="ruby"></code>
         </li>
       
-        <li class="covered" data-hits="1" data-linenumber="37">
+        <li class="covered" data-hits="1" data-linenumber="38">
           <span class="hits">1</span>
           
           <code class="ruby">  def link_params</code>
         </li>
       
-        <li class="covered" data-hits="22" data-linenumber="38">
+        <li class="covered" data-hits="22" data-linenumber="39">
           <span class="hits">22</span>
           
           <code class="ruby">    params.permit(:title, :url, :read, :id)</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="39">
+        <li class="never" data-hits="" data-linenumber="40">
           
           
           <code class="ruby">  end</code>
         </li>
       
-        <li class="never" data-hits="" data-linenumber="40">
+        <li class="never" data-hits="" data-linenumber="41">
           
           
           <code class="ruby">end</code>
