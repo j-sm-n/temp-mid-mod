@@ -16,7 +16,7 @@
 
 $(document).ready(function () {
   $('#links-list').on('click', 'button.mark-Read', setMarkRead)
-  $('#links-list').on('click', 'button.mark-Unread', setMarkUnread)
+  // $('#links-list').on('click', 'button.mark-Unread', setMarkUnread)
 })
 
 
@@ -24,8 +24,8 @@ function setMarkRead () {
   var $this = $(this)
   var link = $this.parents('.link')
   var linkId = link.data('id')
-  sendToHotlinks.bind(this)()
-  
+  // sendToHotlinks.bind(this)()
+
   $.ajax({
     url: '/api/v1/links/' + linkId,
     method: 'PATCH',
@@ -39,6 +39,8 @@ function setMarkRead () {
     $this.text('Mark as Unread')
     $this.off()
   }).then(function () {
-    $this.on('click', setMarkUnread)
+    console.log('win')
+
+    // $this.on('click', setMarkUnread)
   })
 }
