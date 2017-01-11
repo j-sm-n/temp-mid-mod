@@ -10,7 +10,7 @@ $(document).ready(function () {
 function createLink (event) {
   event.preventDefault()
 
-  // console.log("win")
+  console.log("win")
 
   var link = getLinkData()
 
@@ -29,6 +29,9 @@ function getLinkData () {
 
 function renderLink (link) {
   $("#links-list").prepend(linkHTML(link))
+  if (link.read) {
+    $("#link-" + link.id).addClass('read')
+  }
 }
 
 function linkHTML (link) {
