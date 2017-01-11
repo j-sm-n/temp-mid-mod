@@ -4,6 +4,7 @@ function attachEditEvents () {
 }
 
 function editLink () {
+  console.log('win')
   var $linkDiv = $(this).closest('.link')
 
   var id = $linkDiv.data('id')

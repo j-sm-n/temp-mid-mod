@@ -10,4 +10,5 @@ $(document).ready(function () {
 
 function placeLinks (links) {
   links.forEach(renderLink)
+  attachEditEvents()
 }
