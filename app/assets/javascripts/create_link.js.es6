@@ -30,7 +30,7 @@ function renderLink (link) {
   if (link.read) {
     $("#link-" + link.id).addClass('read')
   }
-  setStatus()
+  setStatus(link)
 }
 
 function linkHTML (link) {
@@ -72,12 +72,12 @@ function setStatus (link) {
   $('#link-' + link.id + ' .status').text(status)
 }
 
-function isTopResult (link) {
+function isTopResult(link) {
   return (hotReads[0].url == link.url)
 }
 
-function isHotResult (link) {
-  return hotReads.some(function (read) {
+function isHotResult(link) {
+  return hotReads.some(function(read) {
     return read.url == link.url
   })
 }
