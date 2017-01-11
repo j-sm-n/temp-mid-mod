@@ -30,6 +30,7 @@ function renderLink (link) {
   if (link.read) {
     $("#link-" + link.id).addClass('read')
   }
+  setStatus()
 }
 
 function linkHTML (link) {
@@ -57,4 +58,25 @@ function clearLink () {
 
 function displayFailure (failureData) {
   $("#failure-data").append('<p>' + JSON.parse(failureData.responseText) + '</p>')
+}
+
+function setStatus (link) {
+  var status = ""
+  if (isTopResult(link)) {
+    status = "Top!"
+  } else if (isHotResult(link)) {
+    status = "Hot!"
+  }
+
+  $('#link-' + link.id + ' .status').text(status)
+}
+
+function isTopResult (link) {
+  return (hotReads[0].url === link.url)
+}
+
+function isHotResult (link) {
+  return hotReads.some(function (read) {
+    return read.url === link.url
+  })
 }

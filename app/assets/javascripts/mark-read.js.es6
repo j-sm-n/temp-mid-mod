@@ -8,7 +8,7 @@ function setMarkRead () {
   var $this = $(this)
   var link = $this.parents('.link')
   var linkId = link.data('id')
-  // sendToHotlinks.bind(this)()
+  sendToHotlinks.bind(this)()
 
   $.ajax({
     url: '/api/v1/links/' + linkId,
@@ -46,5 +46,14 @@ function setMarkUnread () {
     $this.off()
   }).then(function () {
     $this.on('click', setMarkRead)
+  })
+}
+
+function sendToHotlinks() {
+  var url = $(this).closest('.link').find('.link-url').text();
+  $.ajax({
+    url: 'https://hot-reads-jh.herokuapp.com/reads',
+    method: 'POST',
+    data: { url: url }
   })
 }
